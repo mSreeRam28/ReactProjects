@@ -1,0 +1,21 @@
+.App{
+    display: flex;
+    padding-left: 250px;
+    padding-top: 150px;
+}
+
+.App div.Course,div.Book,div.Blog{
+    float: left;
+    padding: 20px;
+}
+
+.Course{
+    border-right: 7px solid;
+    border-color: green;
+}
+
+.Book{
+    border-right: 7px solid;
+    border-color: green;
+}
+
