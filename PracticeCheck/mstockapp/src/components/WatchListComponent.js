@@ -32,7 +32,7 @@ export default class WatchListComponent extends Component {
     render(){
         if(this.state.companies.length > 0){
             return(
-                <div className='container-fluid'>
+                <div key={this.props.isLoggedIn} className='container-fluid'>
                     <h1 className='px-4'>My Companies List</h1>
                     <div className='row px-4 py-4'>
                         {this.state.companies.map((company) => {
@@ -48,7 +48,7 @@ export default class WatchListComponent extends Component {
         }
         else{
             return(
-                <div className='container-fluid'>
+                <div key={this.props.isLoggedIn} className='container-fluid'>
                     <h1 className='px-4'>My Companies List</h1>
                     <h2 className='px-4'>No company stock prices added to watch list</h2>
                 </div>

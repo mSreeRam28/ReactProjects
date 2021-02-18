@@ -33,7 +33,7 @@ export default class CompaniesListComponent extends Component{
 
     render(){
         return(
-            <div className='container-fluid'>
+            <div key={this.props.isLoggedIn} className='container-fluid'>
                 <h1 className='px-4'>Companies List</h1>
                 <div className='row px-4 py-4'>
                     {this.state.companies.map((company) => {

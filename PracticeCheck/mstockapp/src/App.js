@@ -13,20 +13,25 @@ function App() {
   const [userId, setUserId] = useState(0);
 
   return (
+    <RouteComponent login={login} userId={userId} setLogin={setLogin} setUserId={setUserId}/>
+  );
+}
+
+function RouteComponent(props){
+  return(
     <BrowserRouter>
       <React.Fragment>
-        <MenuComponent isLoggedIn={login}/>
-        {/* <Switch>
-          <Route path='/companies' render={() => <CompaniesListComponent isLoggedIn={login} userId={userId}/>}/>
-          <Route path='/login' render={() => <LoginComponent changeLoginState={setLogin} setLoginUserId={setUserId}/>}/>
+        <MenuComponent isLoggedIn={props.login} changeLoginState={props.setLogin} setLoginUserId={props.setUserId}/>
+        <Switch>
+          <Route path='/companies' render={() => <CompaniesListComponent isLoggedIn={props.login} userId={props.userId}/>}/>
+          <Route path='/login' render={() => <LoginComponent changeLoginState={props.setLogin} setLoginUserId={props.setUserId}/>}/>
           <Route path='/watchlist'>
-            <WatchListComponent isLoggedIn={login} userId={userId}/>
+            <WatchListComponent isLoggedIn={props.login} userId={props.userId}/>
           </Route>
           <Route path='/performance'>
             <PerformanceComponent/>
           </Route>
-        </Switch> */}
-        <PerformanceComponent/>
+        </Switch>
       </React.Fragment>
     </BrowserRouter>
   );

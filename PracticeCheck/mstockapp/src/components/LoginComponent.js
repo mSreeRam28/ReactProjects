@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Axios from 'axios';
+import {Redirect} from 'react-router-dom';
 
 const getError = (errors) => {
     return(
@@ -24,7 +25,8 @@ export default class LoginComponent extends Component{
                 password: 'Password is required',
                 wrong: ''
             },
-            displayError: ''
+            displayError: '',
+            redirect: null
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -51,7 +53,7 @@ export default class LoginComponent extends Component{
                     const data = res.data;
                     this.props.changeLoginState(true);
                     this.props.setLoginUserId(data.id);
-                    this.setState({displayError:''});
+                    this.setState({displayError:'', redirect:'/companies'});
                 })
                 .catch(error => {
                     this.setState(prevState => ({
@@ -82,6 +84,9 @@ export default class LoginComponent extends Component{
     }
 
     render(){
+        if(this.state.redirect){
+            return <Redirect to={this.state.redirect}/>
+        }
         return(
             <div className='container-fluid'>
                 <h1>Let's get started by login</h1>

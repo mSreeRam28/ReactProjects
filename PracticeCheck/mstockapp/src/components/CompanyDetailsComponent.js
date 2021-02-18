@@ -3,7 +3,7 @@ import React from 'react';
 export default function CompanyDetailsComponent(props){
 
     return(
-        <div className='card'>
+        <div key={props.isLoggedIn} className='card'>
             <div className='card-header'>
                 <h4>{props.company.companyName}</h4>
             </div>
